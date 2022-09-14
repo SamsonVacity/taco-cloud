@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taco Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+    <h1>Design your taco(制作你的玉米卷)!</h1>
+    <img th:src="@{/images/2.webp}" height="30%" width="30%">
+
+    <form method="post" th:object="${design}">
+        <div class="grid">
+            <div class="ingredient-group" id="wraps">
+                <h3>Designate your wrap(指定您的包装):</h3>
+                <div th:each="ingredient : ${wrap}">
+                    <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                    <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+            </div>
+            <div class="ingredient-group" id="proteins">
+                <h3>Pick your protein(选择你的蛋白质):</h3>
+                <div th:each="ingredient : ${protein}">
+                    <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                    <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+            </div>
+
+            <div class="ingredient-group" id="cheeses">
+                <h3>Choose your cheese(选择你的奶酪):</h3>
+                <div th:each="ingredient : ${cheese}">
+                    <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                    <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+            </div>
+
+            <div class="ingredient-group" id="veggies">
+                <h3>Determine your veggies(确定你的蔬菜):</h3>
+                <div th:each="ingredient : ${veggies}">
+                    <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                    <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+            </div>
+
+            <div class="ingredient-group" id="sauces">
+                <h3>Select your sauce(选择你的酱汁):</h3>
+                <div th:each="ingredient : ${sauce}">
+                    <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
+                    <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Name your taco creation(您的墨西哥卷制作名称):</h3>
+<!--            <input type="text" th:field="*{name}"/>-->
+            <br/>
+            <button>Submit your taco(提交你的玉米卷)</button>
+        </div>
+    </form>
+</body>
+</html>
